@@ -17,5 +17,7 @@ public class HotelResponseDTO {
     private String location;
     private String address;
     private double rating;
+    private String imageUrl;
+    private Double basePrice;
     private LocalDate createdAt;
 }

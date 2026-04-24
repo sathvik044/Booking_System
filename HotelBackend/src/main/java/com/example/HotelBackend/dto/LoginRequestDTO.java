@@ -9,11 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class HotelRequestDTO {
-    private String name;
-    private String location;
-    private String address;
-    private double rating;
-    private String imageUrl;
-    private Double basePrice;
+public class LoginRequestDTO {
+    private String email;
+    private String password;
 }

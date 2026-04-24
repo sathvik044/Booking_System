@@ -58,7 +58,7 @@ public class BookingServiceImpl implements BookingService {
                         dto.getCheckInDate()
                 );
 
-        if (!existingBookings.isEmpty()) {
+        if (existingBookings.size() >= room.getTotalRooms()) {
             throw new RuntimeException("Room not available for selected dates");
         }
 

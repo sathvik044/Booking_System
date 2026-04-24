@@ -16,6 +16,8 @@ public class HotelMapper {
         hotel.setLocation(dto.getLocation());
         hotel.setAddress(dto.getAddress());
         hotel.setRating(dto.getRating());
+        hotel.setImageUrl(dto.getImageUrl());
+        hotel.setBasePrice(dto.getBasePrice());
         return hotel;
     }
 
@@ -28,6 +30,8 @@ public class HotelMapper {
                 .location(hotel.getLocation())
                 .address(hotel.getAddress())
                 .rating(hotel.getRating())
+                .imageUrl(hotel.getImageUrl())
+                .basePrice(hotel.getBasePrice())
                 .createdAt(hotel.getCreatedAt())
                 .build();
     }
