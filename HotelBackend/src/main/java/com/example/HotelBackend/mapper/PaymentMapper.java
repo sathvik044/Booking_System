@@ -8,9 +8,12 @@ import com.example.HotelBackend.entity.Booking;
 import com.example.HotelBackend.entity.Payment;
 import com.example.HotelBackend.enums.PaymentStatus;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class PaymentMapper {
 
-    public static Payment toEntity(PaymentRequestDTO dto, Booking booking) {
+    public Payment toEntity(PaymentRequestDTO dto, Booking booking) {
 
         return Payment.builder()
                 .booking(booking)
@@ -21,7 +24,7 @@ public class PaymentMapper {
                 .build();
     }
 
-    public static PaymentResponseDTO toDTO(Payment payment) {
+    public PaymentResponseDTO toDTO(Payment payment) {
 
         return PaymentResponseDTO.builder()
                 .paymentId(payment.getId())
