@@ -7,7 +7,7 @@ import com.example.HotelBackend.enums.PaymentStatus;
 
 @Entity
 @Table(name = "payments")
-@Data   
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
