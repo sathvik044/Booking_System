@@ -1,6 +1,7 @@
 package com.example.HotelBackend.entity;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -9,6 +10,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 >>>>>>> 2db726c1fd84c136aff8d141df3966133d67a32d
+=======
+>>>>>>> a535ad0c05226f1e3b17e9caa9ca6160568a947e
 import java.time.LocalDate;
 
 import com.example.HotelBackend.enums.BookingStatus;
@@ -26,7 +29,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -51,5 +53,4 @@ public class Booking {
     private LocalDate createdAt;
     private LocalDate updatedAt;
 
-    
 }
