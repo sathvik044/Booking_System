@@ -1,14 +1,5 @@
 package com.example.HotelBackend.entity;
 
-<<<<<<< HEAD
-=======
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
->>>>>>> 2db726c1fd84c136aff8d141df3966133d67a32d
 import java.time.LocalDate;
 
 import com.example.HotelBackend.enums.BookingStatus;
@@ -25,8 +16,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
