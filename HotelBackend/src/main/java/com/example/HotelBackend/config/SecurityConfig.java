@@ -35,9 +35,10 @@ public class SecurityConfig {
                 // ✅ Preflight
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
-                // ✅ Public APIs
+                // ✅ Public APIs & Swagger
                 .requestMatchers("/", "/api/login", "/api/register", "/api/home").permitAll()
                 .requestMatchers("/api/hotels/**", "/api/rooms/**").permitAll()
+                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html", "/swagger-resources/**", "/webjars/**").permitAll()
 
                 // 👑 ADMIN only
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
