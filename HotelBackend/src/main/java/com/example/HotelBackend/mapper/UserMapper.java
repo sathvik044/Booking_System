@@ -28,6 +28,7 @@ public class UserMapper {
                 .email(user.getEmail())
                 .phone(user.getPhone())
                 .role(user.getRole().name())
+                .token(token)
                 .createdAt(user.getCreatedAt())
                 .build();
     }
