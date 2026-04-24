@@ -3,6 +3,20 @@ package com.example.HotelBackend.entity;
 import java.time.LocalDateTime;
 
 import com.example.HotelBackend.enums.RoomType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Column;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,7 +44,7 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "hotel_id", nullable = false)
     private Hotel hotel;
 
@@ -47,7 +61,7 @@ public class Room {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @PrePersist
+
     public void onCreate() {
         this.createdAt = LocalDateTime.now();
     }

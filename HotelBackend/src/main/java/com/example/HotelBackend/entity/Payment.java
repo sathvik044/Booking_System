@@ -3,10 +3,11 @@ package com.example.HotelBackend.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
+import com.example.HotelBackend.enums.PaymentStatus;
 
 @Entity
 @Table(name = "payments")
-@Data
+@Data   
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

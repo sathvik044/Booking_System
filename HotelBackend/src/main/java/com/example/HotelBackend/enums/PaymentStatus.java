@@ -1,8 +1,8 @@
 package com.example.HotelBackend.enums;
 
-public class PaymentStatus {
+public enum PaymentStatus {
     SUCCESS,
     FAILED,
     PENDING
 }
-}
+
