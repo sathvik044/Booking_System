@@ -3,6 +3,7 @@ package com.example.HotelBackend.entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
@@ -14,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 
+@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,8 +31,8 @@ public class Booking {
     @ManyToOne
     @JoinColumn(name="room_id", nullable=false)
     private Room room;
-    private LocalDate checkinDate;
-    private LocalDate checkoutDate;
+    private LocalDate checkInDate;
+    private LocalDate checkOutDate;
     private int numberOfGuests;
     private double totalPrice;
     private BookingStatus status;
