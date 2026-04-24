@@ -93,7 +93,7 @@ public class BookingServiceImpl implements BookingService {
         Booking booking = bookingRepository.findById(bookingId)
                 .orElseThrow(() -> new RuntimeException("Booking not found"));
 
-        booking.setStatus(BookingStatus.CANCELLED);
+        booking.setStatus(BookingStatus.CANCELED);
         bookingRepository.save(booking);
     }
 }
