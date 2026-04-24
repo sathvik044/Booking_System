@@ -3,10 +3,13 @@ package com.example.HotelBackend.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
+import com.example.HotelBackend.enums.RoomType;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "rooms")
-@NoArgsConstructor
 public class Room {
 
     @Id
@@ -34,4 +37,4 @@ public class Room {
     public void onCreate() {
         this.createdAt = LocalDateTime.now();
     }
-}
+}   
