@@ -1,22 +1,17 @@
-package com.example.HotelBackend.entity;
+package com.example.HotelBackend.dto;
+
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name="hotels")
-public class Hotel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class HotelResponseDTO {
     private Long id;
     private String name;
     private String location;
@@ -25,6 +20,4 @@ public class Hotel {
     private String imageUrl;
     private Double basePrice;
     private LocalDate createdAt;
-    private LocalDate updatedAt;
-
 }

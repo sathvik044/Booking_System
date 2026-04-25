@@ -1,6 +1,7 @@
 package com.example.HotelBackend.entity;
 
 import java.time.LocalDateTime;
+
 import com.example.HotelBackend.enums.RoomType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,6 +17,7 @@ import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 @Data
 @NoArgsConstructor
