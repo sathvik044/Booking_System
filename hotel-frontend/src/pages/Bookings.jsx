@@ -1,7 +1,7 @@
-import { useState, useEffect, useContext } from 'react';
-import { AuthContext } from '../context/AuthContext';
+import { useState, useEffect, useContext, useCallback } from 'react';
+import { AuthContext } from '../context/AuthContext.jsx';
 import api from '../api';
-import { CalendarDays, MapPin, CreditCard, Loader2, XCircle } from 'lucide-react';
+import { CalendarDays, CreditCard, Loader2, XCircle } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 const Bookings = () => {
@@ -9,7 +9,8 @@ const Bookings = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchBookings = async () => {
+  const fetchBookings = useCallback(async () => {
+    if (!user) return;
     try {
       const res = await api.get(`/bookings/user/${user.id}`);
       const fetchedBookings = res.data;
@@ -20,7 +21,7 @@ const Bookings = () => {
           try {
             const payRes = await api.get(`/payments/booking/${booking.bookingId}`);
             return { ...booking, paymentInfo: payRes.data };
-          } catch (e) {
+          } catch {
             // No payment found or error
             return { ...booking, paymentInfo: null };
           }
@@ -34,13 +35,20 @@ const Bookings = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user]);
 
   useEffect(() => {
-    if (user) {
-      fetchBookings();
-    }
-  }, [user]);
+    let isMounted = true;
+    const loadData = async () => {
+      if (isMounted) {
+        await fetchBookings();
+      }
+    };
+    loadData();
+    return () => {
+      isMounted = false;
+    };
+  }, [fetchBookings]);
 
   const handleCancel = async (bookingId) => {
     if (!window.confirm('Are you sure you want to cancel this booking?')) return;

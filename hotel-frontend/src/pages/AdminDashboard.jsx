@@ -22,7 +22,7 @@ const AdminDashboard = () => {
     try {
       const res = await api.get('/hotels');
       setHotels(res.data);
-    } catch (error) {
+    } catch {
       toast.error('Failed to fetch hotels');
     }
   };
@@ -31,7 +31,7 @@ const AdminDashboard = () => {
     try {
       const res = await api.get('/admin/users');
       setUsers(res.data);
-    } catch (error) {
+    } catch {
       toast.error('Failed to fetch users');
     }
   };
@@ -40,7 +40,7 @@ const AdminDashboard = () => {
     try {
       const res = await api.get('/admin/payments');
       setPayments(res.data);
-    } catch (error) {
+    } catch {
       toast.error('Failed to fetch payments');
     }
   };
@@ -49,7 +49,7 @@ const AdminDashboard = () => {
     try {
       const res = await api.get(`/rooms/hotel/${hotelId}`);
       setHotelRooms(res.data);
-    } catch (error) {
+    } catch {
       toast.error('Failed to fetch rooms for hotel');
     }
   };
@@ -76,7 +76,7 @@ const AdminDashboard = () => {
       toast.success('Hotel added successfully');
       setNewHotel({ name: '', location: '', description: '', basePrice: '' });
       fetchHotels();
-    } catch (error) {
+    } catch {
       toast.error('Failed to add hotel');
     }
   };
@@ -87,7 +87,7 @@ const AdminDashboard = () => {
       await api.delete(`/admin/hotels/${id}`);
       toast.success('Hotel deleted');
       fetchHotels();
-    } catch (error) {
+    } catch {
       toast.error('Failed to delete hotel');
     }
   };
@@ -101,7 +101,7 @@ const AdminDashboard = () => {
       if (selectedHotelForRooms === newRoom.hotelId) {
         fetchRoomsForHotel(newRoom.hotelId);
       }
-    } catch (error) {
+    } catch {
       toast.error('Failed to add room');
     }
   };
@@ -112,7 +112,7 @@ const AdminDashboard = () => {
       await api.delete(`/admin/rooms/${id}`);
       toast.success('Room deleted');
       if (selectedHotelForRooms) fetchRoomsForHotel(selectedHotelForRooms);
-    } catch (error) {
+    } catch {
       toast.error('Failed to delete room');
     }
   };
@@ -122,7 +122,7 @@ const AdminDashboard = () => {
       await api.patch(`/admin/payments/${id}/status?status=${status}`);
       toast.success('Payment status updated');
       fetchPayments();
-    } catch (error) {
+    } catch {
       toast.error('Failed to update status');
     }
   };

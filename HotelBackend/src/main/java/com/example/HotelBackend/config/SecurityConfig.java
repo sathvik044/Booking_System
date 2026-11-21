@@ -45,6 +45,7 @@ public class SecurityConfig {
                 // 👤 USER + ADMIN
                 .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN")
                 .requestMatchers("/api/payments/**").hasAnyRole("USER", "ADMIN")
+                .requestMatchers("/api/bookings/**").hasAnyRole("USER", "ADMIN")
 
                 // 🔐 Everything else
                 .anyRequest().authenticated()

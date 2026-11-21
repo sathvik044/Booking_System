@@ -19,7 +19,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
     public JwtFilter(JwtUtil jwtUtil) {
         this.jwtUtil = jwtUtil;
-    }
+    }   
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
